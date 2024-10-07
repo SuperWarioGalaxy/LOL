@@ -1,0 +1,1 @@
+{"version":3,"sources":["index.css"],"names":[],"mappings":"AAAA;IACI,8DAAsD;IACtD,sBAAsB;;AAE1B","file":"css.967bad95.css","sourceRoot":"..\\src","sourcesContent":["body{\r\n    background-image: url(\"/assets/img/Runeterra Map.png\");\r\n    background-size: cover;\r\n    \r\n}"]}
