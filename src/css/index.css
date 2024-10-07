@@ -3,3 +3,10 @@ body{
     background-size: cover;
     
 }
+.header{
+    text-align: center;
+}
+.logo{
+    width: 600px;
+    height: 200px;
+}
