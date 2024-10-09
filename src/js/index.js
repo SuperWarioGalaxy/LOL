@@ -4,22 +4,25 @@ var champions = [];
 
 const button = document.querySelector("button");
 
-button.addEventListener("click", () => {
+button.addEventListener("click", function() {
     document.querySelector('#button').style.visibility = 'hidden';
-    document.querySelector('#r_champ').style.visibility = 'visible';
+    document.querySelector('#rchamp').style.visibility = 'visible';
+    document.querySelector('html, body').style.height = '0%';
     startR_champ();
 });
 
 const startR_champ = async () => {
-    await fetch("https://ddragon.leagueoflegends.com/cdn/13.18.1/data/es_ES/champion.json")
+    const data = await fetch("https://ddragon.leagueoflegends.com/cdn/13.18.1/data/es_ES/champion.json")
         .then(function(result) {
             return result.json();
-        }).then(function(result){
-            const data = result;
-            const champion = new Champion (data);
-            pushChampion(champion);
         });
-    await showChampions();
+        const array = data.data;
+        Object.entries(array).forEach(([name, champion]) =>{
+            const champ = new Champion(champion);
+            pushChampion(champ);
+        });
+        
+    showChampions();
 };
 
 function pushChampion(champion) {
@@ -27,27 +30,29 @@ function pushChampion(champion) {
 }
 
 const showChampions = async () => {
-    const r_champ = document.getElementById("r_champ");
-    for(var i = 0; i < champions.length; i++) {
-        var aux = 0;
-        while (aux != champions[i].tags.length) {
-            if (aux == 0)
-                var tipo1 = champions[i].tags[aux];
-            if (aux == 1)
-                var tipo2 = champions[i].tags[aux];
-            else
-                tipo2 = " ";
-            aux++;
-        }
+    const r_champ = document.getElementById("rchamp");
     
-        const img = `https://ddragon.leagueoflegends.com/cdn/13.18.1/img/champion/${champions[i].image.full}`;
+    champions.forEach((champ) => {
+        const img = `https://ddragon.leagueoflegends.com/cdn/13.18.1/img/champion/${champ.image.full}`;
+
         r_champ.innerHTML +=    `<div class="card">
-                                    <img class="back" src="${img}"><br>
-                                    ${champions[i].name}. ${champions[i].title}<br>
+                                    
+                                    <h3>${champ.name}</h3>
+                                    <hr>
+                                    ${champ.title}<br>
+                                    <img class="front" src="${img}"><br>
                                     <div class="types">
-                                        ${tipo1} ${tipo2}
+                                        ${champ.tags.map(tag=>`${tag}`).join(' | ')}
                                     </div>
                                     
                                 </div>`
-    }
+        // r_champ.addEventListener("click", () => {
+        //     showChampDetail(champ);
+        // })
+    })
+      
 }
+
+// function showChampDetail(champ) {
+//      // const img = `https://ddragon.leagueoflegends.com/cdn/img/champion/loading/${champ.id + '_0.jpg'}`
+// }
