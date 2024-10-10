@@ -3,10 +3,9 @@ html, body {
 }
 
 body{
-    background: linear-gradient(to bottom, white, grey
-    );
+    /* background: linear-gradient(to bottom, white, grey); */
     background-repeat: no-repeat;
-    
+    background-color: grey;
     /* background-size: cover; */
     /* background-color: white; */
     
@@ -18,6 +17,7 @@ body{
     background-color: white;
     border-radius: 10px;
 }
+
 
 .body{
     display: flex;
@@ -69,10 +69,11 @@ body{
     font-family: DejaVu Sans Mono, monospace;
     border: 2px solid rgb(78, 78, 78);
     border-radius: 5px;
-    /* background: radial-gradient(circle, rgb(88,88,88), rgb(255,255,255)); */
+    /* background: radial-gradient(circle, black, white); */
     text-align: center;
     background-color: black;
     color: goldenrod;
+    box-shadow: 0 8px 16px 0 black, 0 6px 20px 0 purple;
 }
 .card:hover{
     /* transform: scale(1.05); */
@@ -101,4 +102,22 @@ body{
 /* .types:hover{
     background-image: linear-gradient(white, red);
 } */
-
+.modal{
+    display: none;
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+.detail {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+  }

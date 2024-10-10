@@ -31,28 +31,36 @@ function pushChampion(champion) {
 
 const showChampions = async () => {
     const r_champ = document.getElementById("rchamp");
-    
+    const modal = document.getElementById("modal");
     champions.forEach((champ) => {
         const img = `https://ddragon.leagueoflegends.com/cdn/13.18.1/img/champion/${champ.image.full}`;
 
-        r_champ.innerHTML +=    `<div class="card">
-                                    
-                                    <h3>${champ.name}</h3>
+        modal.innerHTML +=`
+        <div class="detail">
+            ${champ.blurb}
+            <span class="close">&times;</span>
+        </div>
+        `
+        r_champ.innerHTML +=    `<div class="card" >
+                                    <button class="open">${champ.name}</button>
                                     <hr>
                                     ${champ.title}<br>
                                     <img class="front" src="${img}"><br>
                                     <div class="types">
                                         ${champ.tags.map(tag=>`${tag}`).join(' | ')}
                                     </div>
-                                    
                                 </div>`
-        // r_champ.addEventListener("click", () => {
-        //     showChampDetail(champ);
-        // })
     })
-      
 }
 
-// function showChampDetail(champ) {
-//      // const img = `https://ddragon.leagueoflegends.com/cdn/img/champion/loading/${champ.id + '_0.jpg'}`
-// }
+const open = document.querySelector(".open");
+open.addEventListener("click", function() {
+    
+    document.querySelector('.modal').style.display = "block";
+});
+const close = document.querySelector(".close");
+close.addEventListener("click", function() {
+    document.querySelector('.modal').style.display = "none";
+});
+
+// const img = `https://ddragon.leagueoflegends.com/cdn/img/champion/loading/${champ.id + '_0.jpg'}`
