@@ -1,14 +1,155 @@
+html, body {
+    height: 100%;
+}
+
 body{
-    background-image: url("/Runeterra Map.ee078b8a.png");
-    background-size: cover;
+    /* background: linear-gradient(to bottom, white, grey); */
+    background-repeat: no-repeat;
+    background-color: grey;
+    /* background-size: cover; */
+    /* background-color: white; */
     
 }
+
 .header{
     text-align: center;
+    width: 100%;
+    background-color: white;
+    border-radius: 10px;
 }
-.logo{
-    width: 600px;
-    height: 200px;
+
+
+.body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
+.button{
+    background-image: url("/l_button.20450f25.jpg");
+    background-size: cover;
+    height: 100px;
+    width: 100px;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 8px 16px 0 black, 0 6px 20px 0 black;
+    animation: shake 2s infinite 5s ;
+}
+@keyframes shake {
+    10%, 90% {
+        transform: translate3d(-1px, 0, 0);
+      }
+      
+      20%, 80% {
+        transform: translate3d(2px, 0, 0);
+      }
+      
+      30%, 50%, 70% {
+        transform: translate3d(-4px, 0, 0);
+      }
+    
+      40%, 60% {
+        transform: translate3d(4px, 0, 0);
+      }
+    
+}
+
+.button:hover{
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+#rchamp{
+    display: grid;
+    grid-template-columns: repeat(3, 2fr);
+    gap: 10px;
+    padding: 10px;
+    
+}
+
+.card{
+    font-family: DejaVu Sans Mono, monospace;
+    border: 2px solid rgb(78, 78, 78);
+    border-radius: 5px;
+    /* background: radial-gradient(circle, black, white); */
+    text-align: center;
+    background-color: black;
+    color: goldenrod;
+    box-shadow: 0 8px 16px 0 black, 0 6px 20px 0 purple;
+}
+.card:before {
+    content: '';
+    width: inherit;
+    height: inherit;
+    position: absolute;
+    background: #fff;
+    opacity: 0;
+    transition: opacity .1s ease-out;   
+  }
+  .card:hover:before { 
+    opacity: 1;
+  }
+  .card .text-container {
+    width: inherit;
+    padding: 5px 15px;
+    color: #444;
+    position: absolute;
+    top: 100%; 
+    display: none;
+  }
+  .card .text-container p{
+    color:red;
+  }
+  .card:hover .text-container {    
+    top: 0;
+    display: block;
+    padding-top: 50px;
+  }
+/* .card:hover h3{
+    display: none;
+}
+.card:hover hr{
+    display: none;
+} */
+.card:hover .title{
+    display: none;
+}
+.card:hover .front{
+    display: none;
+}
+.card:hover .types{
+    display: none;
+}
+
+.card:hover{
+    transform: scale(1.05);
+    background: radial-gradient(circle, white, black);
+    color:wheat;
+    animation: resize 3s infinite;
+    cursor: pointer;
+}
+
+@keyframes resize {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* .card h3{
+    background-image: linear-gradient(red, black);
+} */
+.types {
+  
+    background-image: linear-gradient(black, red);
+}
+/* .types:hover{
+    background-image: linear-gradient(white, red);
+} */
+
 
 /*# sourceMappingURL=/css.967bad95.css.map */
