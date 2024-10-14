@@ -55,6 +55,7 @@ body{
 
 .button:hover{
     transform: scale(1.05);
+    cursor: pointer;
 }
 
 #rchamp{
@@ -75,11 +76,56 @@ body{
     color: goldenrod;
     box-shadow: 0 8px 16px 0 black, 0 6px 20px 0 purple;
 }
+.card:before {
+    content: '';
+    width: inherit;
+    height: inherit;
+    position: absolute;
+    background: #fff;
+    opacity: 0;
+    transition: opacity .1s ease-out;   
+  }
+  .card:hover:before { 
+    opacity: 1;
+  }
+  .card .text-container {
+    width: inherit;
+    padding: 5px 15px;
+    color: #444;
+    position: absolute;
+    top: 100%; 
+    display: none;
+  }
+  .card .text-container p{
+    color:red;
+  }
+  .card:hover .text-container {    
+    top: 0;
+    display: block;
+    padding-top: 50px;
+  }
+/* .card:hover h3{
+    display: none;
+}
+.card:hover hr{
+    display: none;
+} */
+.card:hover .title{
+    display: none;
+}
+.card:hover .front{
+    display: none;
+}
+.card:hover .types{
+    display: none;
+}
+
 .card:hover{
-    /* transform: scale(1.05); */
+    transform: scale(1.05);
     background: radial-gradient(circle, white, black);
     color:wheat;
     animation: resize 3s infinite;
+    cursor: pointer;
 }
 
 @keyframes resize {
@@ -94,7 +140,9 @@ body{
     }
 }
 
-
+/* .card h3{
+    background-image: linear-gradient(red, black);
+} */
 .types {
   
     background-image: linear-gradient(black, red);
@@ -102,22 +150,3 @@ body{
 /* .types:hover{
     background-image: linear-gradient(white, red);
 } */
-.modal{
-    display: none;
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-}
-.detail {
-    background-color: #fefefe;
-    margin: auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
-  }
